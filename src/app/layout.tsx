@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ConfigProvider from "@/provider/ConfigProvider";
+import { montserrat, openSans, poppins } from "../../public/font";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} ${poppins.variable}`}
       >
-        {children}
+        <ConfigProvider>{children}</ConfigProvider>
       </body>
     </html>
   );

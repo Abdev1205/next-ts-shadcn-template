@@ -1,103 +1,151 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { FaGithub } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+import { toast } from "react-hot-toast";
+import { CustomImage } from "@/components/custom/common/CustomImage";
+
+const App = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex items-center justify-center w-full h-screen bg-gradient-to-r from-gray-100 to-blue-100">
+      <div className="w-[40rem] relative h-[38rem] flex flex-col items-center gap-4 p-6 shadow-lg rounded-xl bg-white">
+        <h2 className="text-center font-[400] font-poppins text-[2rem]">
+          Starter Template
+        </h2>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        {/* Logos */}
+        <div className="flex gap-[1rem] justify-center mt-[2rem]">
+          {/* React */}
+          <div className="flex flex-col items-center">
+            <CustomImage
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQktU9SiaDQGVr_kz8OL4Bzc7UT7UGnt_Yg_w&s"
+              alt="React"
+              width={100}
+              height={100}
+              className="object-contain w-20 h-20"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <span className="mt-2 font-semibold text-gray-600">Next</span>
+          </div>
+          {/* TypeScript */}
+          <div className="flex flex-col items-center">
+            <CustomImage
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png"
+              alt="TypeScript"
+              width={100}
+              height={100}
+              className="object-contain w-20 h-20"
+            />
+            <span className="mt-2 font-semibold text-gray-600">TypeScript</span>
+          </div>
+          {/* Vite */}
+          <div className="flex flex-col items-center">
+            <CustomImage
+              src="https://www.svgrepo.com/show/374167/vite.svg"
+              alt="Vite"
+              width={100}
+              height={100}
+              className="object-contain w-20 h-20"
+            />
+            <span className="mt-2 font-semibold text-gray-600">Vite</span>
+          </div>
+          {/* Tailwind */}
+          <div className="flex flex-col items-center">
+            <CustomImage
+              src="https://codekitapp.com/images/help/free-tailwind-icon@2x.png"
+              alt="Tailwind CSS"
+              width={100}
+              height={100}
+              className="object-contain w-20 h-20"
+            />
+            <span className="mt-2 font-semibold text-gray-600">
+              Tailwind CSS
+            </span>
+          </div>
+          {/* Shadcn */}
+          <div className="flex flex-col items-center">
+            <CustomImage
+              src="https://archive.org/download/github.com-shadcn-ui-ui_-_2023-08-09_16-03-10/cover.jpg"
+              alt="Shadcn"
+              width={100}
+              height={100}
+              className="object-contain w-20 h-20 rounded-[.5rem]"
+            />
+            <span className="mt-2 font-semibold text-gray-600">Shadcn</span>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+
+        {/* Font Styles */}
+        <div className="flex flex-col items-center justify-center ">
+          <h2 className="text-xl font-[400] text-gray-500 mt-[1.4rem]">
+            Explore Different Font Styles
+          </h2>
+          <div className="w-fit">
+            <li className="text-lg text-gray-800 font-[600] font-montserrat">
+              Montserrat
+            </li>
+            <li className="text-lg text-gray-800 font-[600] font-openSans">
+              Open Sans
+            </li>
+            <li className="text-lg text-gray-800 font-[600] font-poppins">
+              Poppins
+            </li>
+          </div>
+        </div>
+
+        {/* GitHub Button */}
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="https://github.com/Abdev1205/next-ts-shadcn-template"
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center gap-2 px-4 py-2 mt-4 text-white transition bg-gray-800 rounded-[.5rem] shadow-md hover:bg-gray-700"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          <FaGithub />
+          GitHub Repository
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Taost */}
+        <div className="flex gap-[1rem] items-center justify-center">
+          <Button
+            onClick={() => toast.success("Success Toast")}
+            className="flex items-center gap-2 px-4 py-2 mt-4 text-white transition bg-green-800 rounded-[.5rem] shadow-md hover:bg-green-700"
+          >
+            Success Toast
+          </Button>
+
+          <Button
+            onClick={() => toast.error("Error Toast")}
+            className="flex items-center gap-2 px-4 py-2 mt-4 text-white transition bg-red-800 rounded-[.5rem] shadow-md hover:bg-red-700"
+          >
+            Error Toast
+          </Button>
+
+          <Button
+            onClick={() => toast("Default Toast")}
+            className="flex items-center gap-2 px-4 py-2 mt-4 text-white transition bg-gray-800 rounded-[.5rem] shadow-md hover:bg-gray-700"
+          >
+            Default Toast
+          </Button>
+        </div>
+
+        {/* Footer */}
+        <footer className="absolute text-sm text-center text-gray-500 bottom-4">
+          <p>
+            Developed by{" "}
+            <a
+              href="https://abhaymishra.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:underline"
+            >
+              Abhay Mishra
+            </a>{" "}
+            <span className="text-red-500">♥</span>
+          </p>
+          <p>Powered by Next + TypeScript + Vite + Tailwind + Shadcn</p>
+        </footer>
+      </div>
     </div>
   );
-}
+};
+
+export default App;
